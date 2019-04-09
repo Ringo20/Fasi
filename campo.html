@@ -1,0 +1,346 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <style>
+            body{background-color: black}
+            .bottone{
+                border-radius: 15px;
+                height: 60px;
+                width:100px;
+                cursor: pointer;
+            }
+            div.panchina{
+                position:fixed;
+                width:220px;
+                height: 450px;
+                background-color: lightgray;
+                top: 170px;
+                right: 30px;
+                padding-top:50px;
+                padding-left:30px;
+            }
+            div.pulsantiera{
+                position:fixed;
+                width:220px;
+                height: 450px;
+                background-color: lightgray;
+                top: 170px;
+                left: 30px;
+                padding-top:50px;
+                padding-left:30px;
+            }
+            div.campo {
+                left:370px;
+                top: 70px;
+                background-color:orange;
+                position:fixed;
+                width:600px;
+                height:600px;
+                border: 10px solid white;
+                z-index: 1;
+            }
+            div.linea{
+                background-color: white;
+                width: 600px;
+                height: 10px;
+                top: 270px;
+                left:370px;
+                position:fixed;
+                z-index:2;
+            }
+            div.player{
+                border-radius: 50%;
+                height:60px;
+                width:60px;
+                text-align: center;
+                border: 3px solid red;
+                vertical-align: middle;
+                font-size: 30px;
+                color: black;
+                z-index: 5;
+            }
+            div.rice{
+                position:fixed;
+            }
+            div.P{
+                background-color: lightgreen;
+            }
+            div.C{
+                background-color: cadetblue;
+            }
+            div.M{
+                background-color: lightcoral;
+            }
+            div.O{
+                background-color: lightgray;
+            }
+            div.base{
+                opacity: 0.5;
+                z-index: 4;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+       
+        <script>
+        var zona1 = [810,450];
+        var zona6 = [635,450];
+        var zona5 = [450,450];
+        var zona4 = [450,200];
+        var zona3 = [635,200];
+        var zona2 = [810,200];
+        var both = true;
+        var showBase = true;
+        $(function() {
+            $('#baseRice').bootstrapToggle(
+                    {
+                            width:50,
+                            height:50});
+            $('#showBase').bootstrapToggle({on:"con base",off:"senza base",width:50,height:50});
+        });
+
+        function fase1(){
+            if(both)
+                fase1rice();
+            else
+                fase1base();
+        };
+        function fase2(){
+            if(both)
+                fase2rice();
+            else
+               fase2base();
+        }
+        function fase3(){
+            if(both)
+                fase3rice();
+            else
+                fase3base();
+        }
+        function fase4(){
+            if(both)
+                fase4rice();
+            else
+                fase4base();
+        }
+        function fase5(){
+            if(both)
+                fase5rice()
+            else
+                fase5base();
+        }
+        function fase6(){
+            if(both)
+                fase6rice()
+            else
+                fase6base();
+        }
+        function fase1base(){
+            $(".P").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".M1").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".C2").css("position","fixed").animate({left: zona3[0],top:zona3[1]},1500);
+            $(".O").css("position","fixed").animate({left: zona4[0],top:zona4[1]},1500);
+            $(".M2").css("position","fixed").animate({left: zona5[0],top:zona5[1]},1500);
+            $(".C1").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+            
+        }
+        function fase1rice(){
+            fase1base();
+            $(".P.rice").css("position","fixed").animate({left: "890px",top:"420px"},1500);
+            $(".M1.rice").css("position","fixed").animate({left: "810px",top:"390px"},1500);
+            $(".C1.rice").css("position","fixed").animate({left: "635px",top:"480px"},1500);
+            $(".M2.rice").css("position","fixed").animate({left: "450px",top:"450px"},1500);
+            $(".O.rice").css("position","fixed").animate({left: "400px",top:"250px"},1500);
+            $(".C2.rice").css("position","fixed").animate({left: "635px",top:"150px"},1500);
+        }
+
+        function fase2base(){
+            $(".C1").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".P").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".M1").css("position","fixed").animate({left: zona3[0],top:zona3[1]},1500);
+            $(".C2").css("position","fixed").animate({left: zona4[0],top:zona4[1]},1500);
+            $(".O").css("position","fixed").animate({left: zona5[0],top:zona5[1]},1500);
+            $(".M2").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+        }
+
+        function fase2rice(){
+            fase2base();
+            $(".C1.rice").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".P.rice").css("position","fixed").animate({left: zona2[0],top:zona2[1]-100},1500);
+            $(".M1.rice").css("position","fixed").animate({left: zona3[0]-185,top:zona3[1]+200},1500);
+            $(".C2.rice").css("position","fixed").animate({left: zona4[0]-50,top:zona4[1]},1500);
+            $(".O.rice").css("position","fixed").animate({left: zona5[0]+130,top:zona5[1]+100},1500);
+            $(".M2.rice").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+        }
+        function fase3base(){
+            $(".M2").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".C1").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".P").css("position","fixed").animate({left: zona3[0],top:zona3[1]},1500);
+            $(".M1").css("position","fixed").animate({left: zona4[0],top:zona4[1]},1500);
+            $(".C2").css("position","fixed").animate({left: zona5[0],top:zona5[1]},1500);
+            $(".O").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+        }
+        function fase3rice(){
+            fase3base();
+            $(".M2.rice").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".C1.rice").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".P.rice").css("position","fixed").animate({left: zona3[0]+100,top:zona3[1]-100},1500);
+            $(".M1.rice").css("position","fixed").animate({left: zona4[0],top:zona4[1]+220},1500);
+            $(".C2.rice").css("position","fixed").animate({left: zona5[0]+185,top:zona5[1]},1500);
+            $(".O.rice").css("position","fixed").animate({left: zona6[0]+100,top:zona6[1]+150},1500);
+            
+        }
+        function fase4base(){
+            $(".O").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".M2").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".C1").css("position","fixed").animate({left: zona3[0],top:zona3[1]},1500);
+            $(".P").css("position","fixed").animate({left: zona4[0],top:zona4[1]},1500);
+            $(".M1").css("position","fixed").animate({left: zona5[0],top:zona5[1]},1500);
+            $(".C2").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+        }
+        function fase4rice(){
+            fase4base();
+            $(".O.rice").css("position","fixed").animate({left: zona1[0]+50,top:zona1[1]+150},1500);
+            $(".M2.rice").css("position","fixed").animate({left: zona2[0]-360,top:zona2[1]+220},1500);
+            $(".C1.rice").css("position","fixed").animate({left: zona3[0]-225,top:zona3[1]-50},1500);
+            $(".P.rice").css("position","fixed").animate({left: zona4[0]-70,top:zona4[1]-100},1500);
+            $(".M1.rice").css("position","fixed").animate({left: zona5[0]+185,top:zona5[1]},1500);
+            $(".C2.rice").css("position","fixed").animate({left: zona6[0]+185,top:zona6[1]},1500);
+            
+        }
+        function fase5base(){
+            $(".C2").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".O").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".M2").css("position","fixed").animate({left: zona3[0],top:zona3[1]},1500);
+            $(".C1").css("position","fixed").animate({left: zona4[0],top:zona4[1]},1500);
+            $(".P").css("position","fixed").animate({left: zona5[0],top:zona5[1]},1500);
+            $(".M1").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+        }
+        function fase5rice(){
+            fase5base();
+            $(".C2.rice").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".O.rice").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".M2.rice").css("position","fixed").animate({left: zona3[0]-185,top:zona3[1]+220},1500);
+            $(".C1.rice").css("position","fixed").animate({left: zona4[0]-50,top:zona4[1]-100},1500);
+            $(".P.rice").css("position","fixed").animate({left: zona5[0]+50,top:zona5[1]-175},1500);
+            $(".M1.rice").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+        }
+        function fase6base(){
+            $(".M1").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".C2").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".O").css("position","fixed").animate({left: zona3[0],top:zona3[1]},1500);
+            $(".M2").css("position","fixed").animate({left: zona4[0],top:zona4[1]},1500);
+            $(".C1").css("position","fixed").animate({left: zona5[0],top:zona5[1]},1500);
+            $(".P").css("position","fixed").animate({left: zona6[0],top:zona6[1]},1500);
+        }
+        function fase6rice(){
+            fase6base();
+            $(".M1").css("position","fixed").animate({left: zona1[0],top:zona1[1]},1500);
+            $(".C2").css("position","fixed").animate({left: zona2[0],top:zona2[1]},1500);
+            $(".O").css("position","fixed").animate({left: zona3[0],top:zona3[1]-100},1500);
+            $(".M2").css("position","fixed").animate({left: zona4[0],top:zona4[1]+220},1500);
+            $(".C1").css("position","fixed").animate({left: zona5[0]+185,top:zona5[1]},1500);
+            $(".P").css("position","fixed").animate({left: zona6[0],top:zona6[1]-330},1500);
+            
+        }
+        function bothClik(){
+            if (both){
+                both = false;
+                $(".bottone.rice").css("display","block");
+            }
+            else {
+                both = true;
+                $(".bottone.rice").css("display","none");
+            }
+        }
+        function showBaseClick(){
+            if(showBase){
+                showBase = false;
+                $(".base").css("display","none");
+            }
+            else{
+                showBase = true;
+                $(".base").css("display","block");
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div class="pulsantiera" >
+            <div class="row">
+                <label><input type="checkbox" name="checkbox" value="value" onclick="bothClik()" checked>Base + Rice</label>  
+                <label><input type="checkbox" name="checkbox" value="value" onclick = "showBaseClick()"checked>Mostra Base</label>
+             </div>
+            <div class="row">
+                <input type="button" value="Fase 1" class="bottone" onclick="fase1()"/>
+                <input type="button" value="Fase 1 rice." class="bottone rice" onclick="fase1rice()"/>
+            </div>
+            <div class="row">
+                <input type="button" value="Fase 2" class="bottone" onclick="fase2()"/>
+                <input type="button" value="Fase 2 rice." class="bottone rice" onclick="fase2rice()"/>
+            </div>
+            <div class="row">
+                <input type="button" value="Fase 3" class="bottone" onclick="fase3()"/>
+                <input type="button" value="Fase 3 rice." class="bottone rice" onclick="fase3rice()"/>
+            </div>
+            <div class="row">
+                <input type="button" value="Fase 4" class="bottone" onclick="fase4()"/>
+                <input type="button" value="Fase 4 rice." class="bottone rice" onclick="fase4rice()"/>
+            </div>
+            <div class="row">
+                <input type="button" value="Fase 5" class="bottone" onclick="fase5()"/>
+                <input type="button" value="Fase 5 rice." class="bottone rice" onclick="fase5rice()"/>
+            </div>
+            <div class="row">
+                <input type="button" value="Fase 6" class="bottone" onclick="fase6()"/>
+                <input type="button" value="Fase 6 rice." class="bottone rice" onclick="fase6rice()"/>
+            </div>
+        </div>
+        
+        <div class="campo">
+            <div class="linea">
+                <div class="panchina">
+                    <div class="player P rice">
+                        <label>P</label>
+                    </div>
+                    <div class="player P base">
+                        <label>P</label>
+                    </div>
+                    <div class="player O rice">
+                        <label>O</label>
+                    </div>
+                    <div class="player O base">
+                        <label>O</label>
+                    </div>
+                    <div class="player M M1 rice">
+                        <label>M1</label>
+                    </div>
+                    <div class="player M M1 base">
+                        <label>M1</label>
+                    </div>
+                    <div class="player M M2 rice">
+                        <label>M2</label>
+                    </div>
+                    <div class="player M M2 base">
+                        <label>M2</label>
+                    </div>
+                    <div class="player C C1 rice">
+                        <label>C1</label>
+                    </div>
+                    <div class="player C C1 base">
+                        <label>C1</label>
+                    </div>
+                    <div class="player C C2 rice">
+                        <label>C2</label>
+                    </div>
+                    <div class="player C C2 base">
+                        <label>C2</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
